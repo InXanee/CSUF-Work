@@ -1,0 +1,69 @@
+//Author: Ismael Barajas
+//CPSC 121 Lab 3
+//2/8/2016
+#include <iostream>
+using namespace std;
+
+//Outputs Rectangle when called for.
+void drawrectangle(int width, int height) {
+	for (int i = 1;i <= height;i++) {
+		for (int n = 1;n <= width;n++) {
+			cout << "+";
+		}
+		cout << endl;
+	}
+
+}
+
+//Outputs Triangle when called for.
+void drawtriangle(int size) {
+
+	for (int i = 1;i <= size;i++) {
+		for (int n = 0;n < i;n++) {
+				cout << "+";
+			}
+		cout << endl;
+	}
+}
+
+
+int main() {
+
+	char r_t,looop;
+	int rwidth, rheight, size;
+	//Do while loop
+	do {
+
+		cout << "Rectangle or Triangle? [R/T] ";
+		cin >> r_t;
+
+		if (r_t == 'R') {
+			cout << endl << endl << "Rectangle: " << endl << endl;
+			cout << "Width: ";
+			cin >> rwidth;
+			cout << endl << "Height: ";
+			cin >> rheight;
+			cout << endl;
+			//Calls to draw a Rectangle with width and height
+			drawrectangle(rwidth, rheight);
+		}
+		else if (r_t=='T') {
+			cout << endl << "Triangle:" << endl << endl;
+			cout << "Size? ";
+			cin >> size;
+			cout << endl;
+			//Calls to draw a triangle with size
+			drawtriangle(size);
+		}
+		else {
+			//If input is invalid.
+			cout << "Input is invalid." << endl << endl;
+		}
+		//Asks user to loop again or not
+		cout << "Would you like to continue? [Y/N]";
+		cin >> looop;
+	} while (looop == 'Y');
+	
+	system("PAUSE");
+	return 0;
+}
