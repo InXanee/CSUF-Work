@@ -2,10 +2,50 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include <math.h>
 using namespace std;
 
 int main();
+void input();
+void search();
+void edit();
+void displayAll(); 
+
+int main()
+{
+	system("cls");
+	system("title InXanee database");
+	cout << "Please enter choice: " << endl;
+	cout << "1. Enter new employee." << endl;
+	cout << "2. Search for employee by I.D. Number." << endl;
+	cout << "3. Edit an existing employee's info." << endl;
+	cout << "4. Display all employees." << endl;
+	cout << "5. Exit." << endl << endl;
+	cout << "-----------> ";
+	int choice;
+	cin >> choice;
+	if (choice < 5) {
+		switch (choice) {
+		case 1:
+			input();
+			break;
+		case 2:
+			search();
+			break;
+		case 3:
+			edit();
+			break;
+		case 4:
+			displayAll();
+			break;
+		}
+	}
+	else {
+
+
+
+	}
+	return 0;
+}
 
 void input()
 {
@@ -14,26 +54,41 @@ void input()
 	string mname;
 	string lname;
 	string filename;
+	string choice;
+
 	double salary;
 	int emid, age;
-	cout << endl << "Input first name: ";
-	cin >> fname;
-	cout << "Input middle name or leave blnk if none: ";
-	cin >> mname;
-	cout << "Input last name: ";
-	cin >> lname;
-	cout << "Input employee age: ";
-	cin >> age;
-	cout << "Input employee salary: ";
-	cin >> salary;
-	cout << "Employee I.D. number: ";
-	cin >> emid;
-	string emid2 = to_string(emid);
-	emid2.append(".txt");
+	do
+	{
+		system("cls");
+		cout << "Input first name: ";
+		cin >> fname;
+		cout << "Input middle name or leave blnk if none: ";
+		cin >> mname;
+		cout << "Input last name: ";
+		cin >> lname;
+		cout << "Input employee age: ";
+		cin >> age;
+		cout << "Input employee salary: ";
+		cin >> salary;
+		cout << "Employee I.D. number: ";
+		cin >> emid;
+		string emid2 = to_string(emid);
+		emid2.append(".txt");
 
-	ofstream newemployee(emid2);
-	newemployee << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << emid << ' ' << salary << endl;
-	newemployee.close();
+		ofstream newemployee(emid2);
+		newemployee << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << emid << ' ' << salary << endl;
+		newemployee.close();
+		cout << "Would you like to enter another new employee? [y/n]\n";
+		cin >> choice;
+
+		ofstream dir("Directory.txt", ios::app);
+		dir << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << emid << ' ' << salary << endl;
+		dir.close();
+
+	} while (choice == "y");
+
+	main();
 }
 
 void search()
@@ -43,6 +98,7 @@ void search()
 	string mname;
 	string lname;
 	string filename;
+
 	double salary;
 	int emid, age, thrw;
 	cout << "Enter employee ID number: ";
@@ -64,7 +120,7 @@ void search()
 		cout << fname << ' ' << mname << ' ' << lname << endl;
 		cin >> answer;
 
-		if(answer=="y"){
+		if (answer == "y") {
 			system("cls");
 			cout << "Name";
 			for (int y = 1; y < lengthtotal; y++) {
@@ -80,8 +136,8 @@ void search()
 				cout << "-";
 			}
 			cout << ' ' << endl;
-			cout << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << "$" << salary<<' ' << emid << endl;
-		
+			cout << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << "$" << salary << ' ' << emid << endl;
+
 		}
 	}
 	system("PAUSE");
@@ -92,9 +148,9 @@ void edit()
 {
 
 	system("cls");
+	cout << "Still in Progress" << endl << endl;
 
-
-
+	system("PAUSE");
 
 }
 
@@ -102,42 +158,24 @@ void displayAll()
 {
 
 	system("cls");
+	string fname;
+	string mname;
+	string lname;
 
+	double salary;
+	int emid, age;
 
+	cout << "Employee Database." << endl;
+	cout << "------------------------------------------" << endl;
 
-}
+	ifstream dir("Directory.txt");
 
+	while (dir >> fname >> mname >> lname >> age >> emid >> salary) {
+		cout << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << "$" << salary << ' ' << emid << endl << endl;
 
-int main() 
-{
-	system("cls");
-	system("title InXanee database");
-	cout << "Please enter choice: " << endl;
-	cout << "1. Enter new emplooyee." << endl;
-	cout << "2. Search for employee by I.D. Number." << endl;
-	cout << "3. Edit an existing employee's info." << endl;
-	cout << "4. Display all employees." << endl;
-	cout << "5. Exit." << endl;
-
-	int choice;
-	cin >> choice;
-
-	switch(choice){
-	case 1:
-		input();
-		break;
-	case 2:
-		search();
-		break;
-	case 3:
-		edit();
-		break;
-	case 4:
-		displayAll();
-		break;
 	}
-
+	
 	system("PAUSE");
-	return 0;
+	main();
 }
 
