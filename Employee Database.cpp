@@ -77,7 +77,7 @@ void input()
 		emid2.append(".txt");
 
 		ofstream newemployee(emid2);
-		newemployee << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << emid << ' ' << salary << endl;
+		newemployee << fname << "," << mname << "," << lname << "," << age << "," << emid << "," << salary << endl;
 		newemployee.close();
 		cout << "Would you like to enter another new employee? [y/n]\n";
 		cin >> choice;
