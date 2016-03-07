@@ -44,55 +44,23 @@ void assignmentsNew(int studentNum) {
 		cout << "\tAssignment #" << i << ": ";
 		cin >> studList[studentNum].assignments[i];
 	}
-
-	//testing if scores are inputing. 
-
-	for (int z = 0; z < assignmentCounter; z++) {
-
-		cout << "Assignment #" << z << ": " << studList[studentCounter].assignments[z];
-
-	}
-
-	//
 	system("pause");
 
 }
 
-void gradesForNewAssign() {
-
+void gradesForNewAssign()
+{
 	system("cls");
-	string  f_Name;
-	int z = 45, x = 99;
 
 	if (studentCounter != 0)
 	{
-		cout << "Enter the student's first name: ";
-		cin >> f_Name;
-
 		for (int i = 0; i <= studentCounter; i++)
 		{
-			if (studList[i].firstName == f_Name)
-			{
-				z = i;
-				x = i;
-				break;
-			}
+			cout << "Enter new assignment/s score for: " << studList[i].firstName << " " << studList[i].lastName << endl << endl;
+			cout << "\Score: ";
+			cin >> studList[i].assignments[assignmentCounter];
 		}
-
-		if (z==x)
-		{
-			cout << "Enter assignment/s score for: " << studList[z].firstName << " " << studList[z].lastName << endl << endl<<z;
-			for (int i = 0; i < assignmentCounter; i++) {
-				cout << "\tAssignment #" << i << ": ";
-				cin >> studList[z].assignments[i];
-			}
-		}
-		else
-		{
-
-			cout << "\"" << f_Name << "\"" << " was unable to be found.\n";
-
-		}
+		assignmentCounter++;
 	}
 	else
 	{
@@ -114,7 +82,7 @@ void addNewStudent() {
 	cout << "\nLast name: ";
 	cin >> lastNameCheck;
 	cout << "\n";
-	
+
 	if (studentExists(firstNameCheck)) {
 		cout << "Student already exists in database." << endl << endl;
 	}
@@ -125,11 +93,11 @@ void addNewStudent() {
 		cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
 
 		studentCounter++;
-		
+
 	}
 
 
-	if (assignmentCounter!=0) {
+	if (assignmentCounter != 0) {
 
 		cout << "Assignments already exists, please enter scores for the new student. \n";
 		assignmentsNew(studentCounter);
@@ -178,7 +146,7 @@ int main() {
 				gradesForNewAssign();
 				break;
 			case 3:
-		
+
 				break;
 			case 4:
 
@@ -195,7 +163,7 @@ int main() {
 				system("pause");
 			}
 		}
-	} while (choice!=7);
+	} while (choice != 7);
 
 	system("pause");
 	return 0;
