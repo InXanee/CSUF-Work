@@ -1,6 +1,11 @@
 //Author: Ismael Barajas
 //CPSC 121 Lab 5
 //2/29/2016
+
+
+//still need to find out the assignment counter situation
+
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,24 +22,120 @@ Students studList[NUM_STUDENTS];
 int studentCounter = 0;
 int assignmentCounter = 0;
 int main();
+void gradesForNewAssign();
+
+bool studentExists(string firstName) {
+	bool found = false;
+
+	for (int i = 0; i < NUM_STUDENTS; i++) {
+		if (studList[i].firstName == firstName)
+			found = true;
+	}
+
+	return found;
+}
+
+void assignmentsNew(int studentNum) {
+
+	cout << "Enter assignment/s score. \n";
+
+	for (int i = 0; i < assignmentCounter; i++) {
+
+		cout << "\tAssignment #" << i << ": ";
+		cin >> studList[studentNum].assignments[i];
+	}
+
+	//testing if scores are inputing. 
+
+	for (int z = 0; z < assignmentCounter; z++) {
+
+		cout << "Assignment #" << z << ": " << studList[studentCounter].assignments[z];
+
+	}
+
+	//
+	system("pause");
+
+}
+
+void gradesForNewAssign() {
+
+	system("cls");
+	string  f_Name;
+	int z = 45, x = 99;
+
+	if (studentCounter != 0)
+	{
+		cout << "Enter the student's first name: ";
+		cin >> f_Name;
+
+		for (int i = 0; i <= studentCounter; i++)
+		{
+			if (studList[i].firstName == f_Name)
+			{
+				z = i;
+				x = i;
+				break;
+			}
+		}
+
+		if (z==x)
+		{
+			cout << "Enter assignment/s score for: " << studList[z].firstName << " " << studList[z].lastName << endl << endl<<z;
+			for (int i = 0; i < assignmentCounter; i++) {
+				cout << "\tAssignment #" << i << ": ";
+				cin >> studList[z].assignments[i];
+			}
+		}
+		else
+		{
+
+			cout << "\"" << f_Name << "\"" << " was unable to be found.\n";
+
+		}
+	}
+	else
+	{
+		cout << "There are no students in the Gradebook, first add a new student please.\n";
+	}
+	system("pause");
+}
+
 
 void addNewStudent() {
 
+	system("cls");
+
+	string firstNameCheck, lastNameCheck;
+
 	cout << "Adding new student in class:\n\n";
 	cout << "First name: ";
-	cin >> studList[studentCounter].firstName;
-	cout << "\n\nLast name: ";
-	cin >> studList[studentCounter].lastName;
-	cout << "\n\n";
-	cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n";
+	cin >> firstNameCheck;
+	cout << "\nLast name: ";
+	cin >> lastNameCheck;
+	cout << "\n";
+	
+	if (studentExists(firstNameCheck)) {
+		cout << "Student already exists in database." << endl << endl;
+	}
+	else {
+		studList[studentCounter].firstName = firstNameCheck;
+		studList[studentCounter].lastName = lastNameCheck;
+
+		cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
+
+		studentCounter++;
+		
+	}
 
 
+	if (assignmentCounter!=0) {
 
+		cout << "Assignments already exists, please enter scores for the new student. \n";
+		assignmentsNew(studentCounter);
+	}
 
-
-	studentCounter++;
 	system("pause");
-	main();
 }
 
 
@@ -45,34 +146,56 @@ int main() {
 
 	int choice;
 
-	cout << "Please choose one of the following: " << endl;
-	cout << "--------------------------------------" << endl << endl;
-	cout << "1. Add a new student to the class.\n";
-	cout << "2. Assign grades for new assignment.\n";
-	cout << "3. Display all of the student's grades and course average.\n";
-	cout << "4. List all scores for an assignment.\n";
-	cout << "5. Gradebook.\n";
-	cout << "6. Exit.\n\n";
-	cout << "--------------->";
-	cin >> choice;
+	do {
 
-	switch (choice) {
-	case 1:
-		addNewStudent();
-		break;
-	case 2:
+		system("cls");
 
-		break;
-	case 3:
+		cout << "Please choose one of the following: " << endl;
+		cout << "--------------------------------------" << endl << endl;
+		cout << "\t1. Add a new student to the Gradebook.\n";
+		cout << "\t2. Assign grades for new assignment.\n";
+		cout << "\t3. Display all of the student's grades and course average.\n";
+		cout << "\t4. List all scores for an assignment.\n";
+		cout << "\t5. Gradebook.\n";
+		cout << "\t6. Exit.\n\n";
+		cout << "---------------> ";
+		cin >> choice;
 
-		break;
-	case 4:
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(999, '\n');
+			system("cls");
+			cout << "ERROR: Invalid input.\n\n";
+			system("pause");
 
-		break;
-	case 5:
+		}
+		else {
+			switch (choice) {
+			case 1:
+				addNewStudent();
+				break;
+			case 2:
+				gradesForNewAssign();
+				break;
+			case 3:
+		
+				break;
+			case 4:
 
-		break;
-	}
+				break;
+			case 5:
+
+				break;
+			case 6:
+				return 0;
+				break;
+			default:
+				system("cls");
+				cout << "Please enter a valid integer thats within the scope." << endl;
+				system("pause");
+			}
+		}
+	} while (choice!=7);
 
 	system("pause");
 	return 0;
