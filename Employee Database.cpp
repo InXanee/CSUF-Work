@@ -8,7 +8,7 @@ int main();
 void input();
 void search();
 void edit();
-void displayAll();
+void displayAll(); 
 
 int main()
 {
@@ -77,13 +77,13 @@ void input()
 		emid2.append(".txt");
 
 		ofstream newemployee(emid2);
-		newemployee << fname << ", " << mname << ", " << lname << ", " << age << ", " << emid << ", " << salary << endl;
+		newemployee << fname << "," << mname << "," << lname << "," << age << "," << emid << "," << salary << endl;
 		newemployee.close();
 		cout << "Would you like to enter another new employee? [y/n]\n";
 		cin >> choice;
 
 		ofstream dir("Directory.txt", ios::app);
-		dir << fname << " " << mname << " " << lname << " " << age << " " << emid << " " << salary << endl;
+		dir << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << emid << ' ' << salary << endl;
 		dir.close();
 
 	} while (choice == "y");
@@ -166,17 +166,16 @@ void displayAll()
 	int emid, age;
 
 	cout << "Employee Database." << endl;
-	cout << "First, Middle, Last, Age, Salary, #ID" << endl;
-	cout << "----------------------------------------" << endl << endl;
+	cout << "------------------------------------------" << endl;
 
 	ifstream dir("Directory.txt");
 
 	while (dir >> fname >> mname >> lname >> age >> emid >> salary) {
-		
-		cout << fname << ", " << mname << ", " << lname << ", " << age << ", " << "$" << salary << ", " << emid << endl << endl;
+		cout << fname << ' ' << mname << ' ' << lname << ' ' << age << ' ' << "$" << salary << ' ' << emid << endl << endl;
 
 	}
-
+	
 	system("PAUSE");
 	main();
 }
+

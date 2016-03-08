@@ -8,7 +8,10 @@
 
 #include <iostream>
 #include <string>
+<<<<<<< HEAD
 #include <fstream>
+=======
+>>>>>>> origin/master
 using namespace std;
 
 
@@ -36,13 +39,20 @@ bool studentExists(string firstName) {
 	return found;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 void assignmentsNew(int studentNum) {
 
 	cout << "Enter assignment/s score. \n";
 
+<<<<<<< HEAD
 	for (int i = 0; i < assignmentCounter; i++) 
 	{
+=======
+	for (int i = 0; i < assignmentCounter; i++) {
+>>>>>>> origin/master
 
 		cout << "\tAssignment #" << i << ": ";
 		cin >> studList[studentNum].assignments[i];
@@ -51,19 +61,30 @@ void assignmentsNew(int studentNum) {
 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 void gradesForNewAssign()
 {
 	system("cls");
 
 	if (studentCounter != 0)
 	{
+<<<<<<< HEAD
 		for (int i = 0; i < studentCounter; i++)
 		{
 			cout << "Enter new assignment/s score for: " << studList[i].firstName << " " << studList[i].lastName << endl << endl;
 			cout << "Score: ";
 			cin >> studList[i].assignments[assignmentCounter];
 			cout << "\n";
+=======
+		for (int i = 0; i <= studentCounter; i++)
+		{
+			cout << "Enter new assignment/s score for: " << studList[i].firstName << " " << studList[i].lastName << endl << endl;
+			cout << "\Score: ";
+			cin >> studList[i].assignments[assignmentCounter];
+>>>>>>> origin/master
 		}
 		assignmentCounter++;
 	}
@@ -92,6 +113,7 @@ void addNewStudent() {
 		cout << "Student already exists in database." << endl << endl;
 	}
 	else {
+<<<<<<< HEAD
 
 			studList[studentCounter].firstName = firstNameCheck;
 			studList[studentCounter].lastName = lastNameCheck;
@@ -102,6 +124,18 @@ void addNewStudent() {
 
 	}
 
+=======
+		studList[studentCounter].firstName = firstNameCheck;
+		studList[studentCounter].lastName = lastNameCheck;
+
+		cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
+
+		studentCounter++;
+
+	}
+
+
+>>>>>>> origin/master
 	if (assignmentCounter != 0) {
 
 		cout << "Assignments already exists, please enter scores for the new student. \n";
@@ -111,6 +145,7 @@ void addNewStudent() {
 	system("pause");
 }
 
+<<<<<<< HEAD
 void studGrCrseAvrg() {
 
 	system("cls");
@@ -255,6 +290,8 @@ void load()
 }
 
 
+=======
+>>>>>>> origin/master
 
 
 int main() {
@@ -271,12 +308,19 @@ int main() {
 		cout << "--------------------------------------" << endl << endl;
 		cout << "\t1. Add a new student to the Gradebook.\n";
 		cout << "\t2. Assign grades for new assignment.\n";
+<<<<<<< HEAD
 		cout << "\t3. Display all of a student's grades and course average.\n";
 		cout << "\t4. List all scores for an assignment.\n";
 		cout << "\t5. View whole Gradebook.\n";//
 		cout << "\t6. Save current Data. \n";
 		cout << "\t7. Load past Data.\n";//
 		cout << "\t8. Exit.\n\n";
+=======
+		cout << "\t3. Display all of the student's grades and course average.\n";
+		cout << "\t4. List all scores for an assignment.\n";
+		cout << "\t5. Gradebook.\n";
+		cout << "\t6. Exit.\n\n";
+>>>>>>> origin/master
 		cout << "---------------> ";
 		cin >> choice;
 
@@ -297,6 +341,7 @@ int main() {
 				gradesForNewAssign();
 				break;
 			case 3:
+<<<<<<< HEAD
 				studGrCrseAvrg();
 				break;
 			case 4:
@@ -312,6 +357,17 @@ int main() {
 				load();
 				break;
 			case 8:
+=======
+
+				break;
+			case 4:
+
+				break;
+			case 5:
+
+				break;
+			case 6:
+>>>>>>> origin/master
 				return 0;
 				break;
 			default:
@@ -320,7 +376,11 @@ int main() {
 				system("pause");
 			}
 		}
+<<<<<<< HEAD
 	} while (choice != 9);
+=======
+	} while (choice != 7);
+>>>>>>> origin/master
 
 	system("pause");
 	return 0;
