@@ -41,7 +41,7 @@ void assignmentsNew(int studentNum) {
 
 	cout << "Enter assignment/s score. \n";
 
-	for (int i = 0; i < assignmentCounter; i++) 
+	for (int i = 0; i < assignmentCounter; i++)
 	{
 
 		cout << "\tAssignment #" << i << ": ";
@@ -93,12 +93,12 @@ void addNewStudent() {
 	}
 	else {
 
-			studList[studentCounter].firstName = firstNameCheck;
-			studList[studentCounter].lastName = lastNameCheck;
+		studList[studentCounter].firstName = firstNameCheck;
+		studList[studentCounter].lastName = lastNameCheck;
 
-			cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
+		cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
 
-			studentCounter++;
+		studentCounter++;
 
 	}
 
@@ -135,7 +135,7 @@ void studGrCrseAvrg() {
 		}
 		if (z == x)
 		{
-			if (assignmentCounter!=0)
+			if (assignmentCounter != 0)
 			{
 				cout << "Assignment scores & Course average for: " << studList[z].firstName << " " << studList[z].lastName << endl << endl;
 				for (int i = 0; i < assignmentCounter; i++)
@@ -148,7 +148,7 @@ void studGrCrseAvrg() {
 			}
 			else
 			{
-				cout << "There are no assignments in the Gradebook for " << f_Name<< ", first add a new assignment please.\n\n";
+				cout << "There are no assignments in the Gradebook for " << f_Name << ", first add a new assignment please.\n\n";
 			}
 		}
 		else
@@ -212,13 +212,32 @@ void scoresAndClasAvg()
 
 }
 
-//This is next to work on
+
 void displayGradebook()
 {
 
+	system("cls");
+	
+	if (studentCounter != 0)
+	{
+		cout << "Students---------Assignment Scores-----------\n\n";
+		for (int i = 0; i < studentCounter; i++)
+		{
+			cout << studList[i].firstName << " " << studList[i].lastName << " ";
+			for (int z = 0; z < assignmentCounter; z++)
+			{
+				cout << studList[i].assignments[z] << " ";
+			}
+			cout << "\n\n";
+		}
+		system("pause");
 
-
-
+	}
+	else
+	{
+		cout << "There are no students in the Gradebook, please enter a new student first.\n\n";
+		system("pause");
+	}
 }
 
 
@@ -227,7 +246,7 @@ void save()
 	ofstream scores("scores.txt");
 	scores << studentCounter << "\n" << assignmentCounter << "\n";
 
-	for (int i = 0; i < studentCounter; i++) 
+	for (int i = 0; i < studentCounter; i++)
 	{
 		scores << studList[i].firstName << " " << studList[i].lastName << " ";
 		for (int z = 0; z < assignmentCounter; z++)
@@ -237,11 +256,11 @@ void save()
 		scores << "\n";
 	}
 	system("cls");
-	cout << "\n\n\tData has been saved.\n\n";
+	cout << "\n\tData has been saved.\n\n";
 	system("pause");
 }
 
-void load() 
+void load()
 {
 
 
@@ -317,6 +336,7 @@ int main() {
 			default:
 				system("cls");
 				cout << "Please enter a valid integer thats within the scope." << endl;
+				choice = 8;
 				system("pause");
 			}
 		}
