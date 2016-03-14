@@ -7,10 +7,7 @@
 #include <fstream>
 using namespace std;
 
-<<<<<<< HEAD
 //Struct for Students 
-=======
->>>>>>> origin/master
 struct Students {
 	string firstName;
 	string lastName;
@@ -38,18 +35,12 @@ bool studentExists(string firstName) {
 	return found;
 }
 
-<<<<<<< HEAD
 //When assignments already exist 
-=======
->>>>>>> origin/master
 void assignmentsNew(int studentNum) {
 
 	cout << "Enter assignment/s score. \n";
 
-<<<<<<< HEAD
 	//Loops through assignment scores 
-=======
->>>>>>> origin/master
 	for (int i = 0; i < assignmentCounter; i++)
 	{
 
@@ -60,29 +51,19 @@ void assignmentsNew(int studentNum) {
 
 }
 
-<<<<<<< HEAD
 //Assigns scores to each student for new assignment in the gradebook
-=======
->>>>>>> origin/master
 void gradesForNewAssign()
 {
 	system("cls");
 
-<<<<<<< HEAD
 	//Checks if assignment cap has been reached 
 	if (assignmentCounter > 9)
-=======
-	if (assignmentCounter > 9) 
->>>>>>> origin/master
 	{
 		cout << "\n\tERROR: Assignment size has been reached.\n\n";
 		system("pause");
 		return;
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 	if (studentCounter != 0)
 	{
 		for (int i = 0; i < studentCounter; i++)
@@ -101,29 +82,19 @@ void gradesForNewAssign()
 	system("pause");
 }
 
-<<<<<<< HEAD
 //Function adds new student to the gradebook
-=======
->>>>>>> origin/master
 void addNewStudent() {
 
 	system("cls");
 
-<<<<<<< HEAD
 	//Checks if student cap has been reached 
-=======
->>>>>>> origin/master
 	if (studentCounter>9) {
 		cout << "\n\tERROR: Class size has reached its limit.\n\n";
 		system("pause");
 		return;
 	}
 
-<<<<<<< HEAD
 	string firstNameCheck, lastName; 
-=======
-	string firstNameCheck, lastNameCheck;
->>>>>>> origin/master
 
 	cout << "Adding new student in class:\n\n";
 	cout << "First name: ";
@@ -141,16 +112,8 @@ void addNewStudent() {
 		studList[studentCounter].firstName = firstNameCheck;
 		studList[studentCounter].lastName = lastName;
 
-<<<<<<< HEAD
 		cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
 
-=======
-		studList[studentCounter].firstName = firstNameCheck;
-		studList[studentCounter].lastName = lastNameCheck;
-
-		cout << studList[studentCounter].firstName << " " << studList[studentCounter].lastName << " has been added to the Gradebook.\n\n";
-
->>>>>>> origin/master
 		studentCounter++;
 
 	}
@@ -271,19 +234,11 @@ void scoresAndClasAvg()
 
 }
 
-<<<<<<< HEAD
 //Function displays the whole gradebook
-=======
->>>>>>> origin/master
 void displayGradebook()
 {
 	system("cls");
 
-<<<<<<< HEAD
-=======
-	system("cls");
-	
->>>>>>> origin/master
 	if (studentCounter != 0)
 	{
 		cout << "Students---------Assignment Scores-----------\n\n";
@@ -306,10 +261,7 @@ void displayGradebook()
 	}
 }
 
-<<<<<<< HEAD
 //Function saves new data into scores.txt 
-=======
->>>>>>> origin/master
 void save()
 {
 
@@ -342,10 +294,7 @@ void save()
 	system("pause");
 }
 
-<<<<<<< HEAD
 //Function loads data from past scores.txt
-=======
->>>>>>> origin/master
 void load()
 {
 	string option;
@@ -397,10 +346,7 @@ void load()
 	}
 }
 
-<<<<<<< HEAD
 //Main Function
-=======
->>>>>>> origin/master
 int main() {
 
 	int choice;
@@ -415,20 +361,11 @@ int main() {
 		cout << "------------------------------------------------------------------" << endl << endl;
 		cout << " |\t1. Add a new student to the Gradebook.\n";
 		cout << " |\t2. Assign grades for new assignment.\n";
-<<<<<<< HEAD
 		cout << " |\t3. Display one student's grades and course average.\n";
 		cout << " |\t4. List all scores for an assignment and its class average.\n";
 		cout << " |\t5. View whole Gradebook.\n";
 		cout << " |\t6. Save current Data. \n";
 		cout << " |\t7. Exit.\n\n";
-=======
-		cout << " |\t3. Display all of a student's grades and course average.\n";
-		cout << " |\t4. List all scores for an assignment.\n";
-		cout << " |\t5. View whole Gradebook.\n";
-		cout << " |\t6. Save current Data. \n";
-		cout << " |\t7. Load past Data.\n";
-		cout << " |\t8. Exit.\n\n";
->>>>>>> origin/master
 		cout << "---------------> ";
 		cin >> choice;
 
@@ -467,11 +404,7 @@ int main() {
 			default:
 				system("cls");
 				cout << "Please enter a valid integer thats within the scope." << endl;
-<<<<<<< HEAD
 				choice = 8; //Makes sure 'choice' value isn't 9, which would force program to exit prematurely
-=======
-				choice = 8;
->>>>>>> origin/master
 				system("pause");
 			}
 		}
