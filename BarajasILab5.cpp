@@ -2,15 +2,10 @@
 //CPSC 121 Lab 5
 //2/29/2016
 
-
-//still need to find out the assignment counter situation
-
-
 #include <iostream>
 #include <string>
 #include <fstream>
 using namespace std;
-
 
 struct Students {
 	string firstName;
@@ -36,7 +31,6 @@ bool studentExists(string firstName) {
 	return found;
 }
 
-
 void assignmentsNew(int studentNum) {
 
 	cout << "Enter assignment/s score. \n";
@@ -51,11 +45,16 @@ void assignmentsNew(int studentNum) {
 
 }
 
-
 void gradesForNewAssign()
 {
 	system("cls");
 
+	if (assignmentCounter > 9) 
+	{
+		cout << "\n\tERROR: Assignment size has been reached.\n\n";
+		system("pause");
+		return;
+	}
 	if (studentCounter != 0)
 	{
 		for (int i = 0; i < studentCounter; i++)
@@ -74,10 +73,15 @@ void gradesForNewAssign()
 	system("pause");
 }
 
-
 void addNewStudent() {
 
 	system("cls");
+
+	if (studentCounter>9) {
+		cout << "\n\tERROR: Class size has reached its limit.\n\n";
+		system("pause");
+		return;
+	}
 
 	string firstNameCheck, lastNameCheck;
 
@@ -148,7 +152,7 @@ void studGrCrseAvrg() {
 			}
 			else
 			{
-				cout << "There are no assignments in the Gradebook for " << f_Name << ", first add a new assignment please.\n\n";
+				cout << "\nThere are no assignments in the Gradebook for " << f_Name << ", first add a new assignment please.\n\n";
 			}
 		}
 		else
@@ -212,7 +216,6 @@ void scoresAndClasAvg()
 
 }
 
-
 void displayGradebook()
 {
 
@@ -239,7 +242,6 @@ void displayGradebook()
 		system("pause");
 	}
 }
-
 
 void save()
 {
@@ -273,12 +275,7 @@ void load()
 
 }
 
-
-
-
 int main() {
-
-	system("cls");
 
 	int choice;
 
@@ -287,15 +284,15 @@ int main() {
 		system("cls");
 
 		cout << "Please choose one of the following: " << endl;
-		cout << "--------------------------------------" << endl << endl;
-		cout << "\t1. Add a new student to the Gradebook.\n";
-		cout << "\t2. Assign grades for new assignment.\n";
-		cout << "\t3. Display all of a student's grades and course average.\n";
-		cout << "\t4. List all scores for an assignment.\n";
-		cout << "\t5. View whole Gradebook.\n";//
-		cout << "\t6. Save current Data. \n";
-		cout << "\t7. Load past Data.\n";//
-		cout << "\t8. Exit.\n\n";
+		cout << "------------------------------------------------------------------" << endl << endl;
+		cout << " |\t1. Add a new student to the Gradebook.\n";
+		cout << " |\t2. Assign grades for new assignment.\n";
+		cout << " |\t3. Display all of a student's grades and course average.\n";
+		cout << " |\t4. List all scores for an assignment.\n";
+		cout << " |\t5. View whole Gradebook.\n";
+		cout << " |\t6. Save current Data. \n";
+		cout << " |\t7. Load past Data.\n";
+		cout << " |\t8. Exit.\n\n";
 		cout << "---------------> ";
 		cin >> choice;
 
